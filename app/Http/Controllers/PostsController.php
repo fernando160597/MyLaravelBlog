@@ -24,7 +24,7 @@ class PostsController extends Controller
     ->orWhere('content','LIKE','%'.$request->search.'%')
     ->orWhere('content','LIKE','%'.$lowerSearch.'%')
     ->orWhere('title','LIKE','%'.$lowerSearch.'%')
-    ->simplePaginate(2);
+    ->simplePaginate(1);
 
     return view('posts.index', ['posts' => $posts,
     'search' =>$request->search ]);
