@@ -27,6 +27,10 @@ Route::post('/create', 'App\Http\Controllers\PostsController@store')
 ->name('create')
 ->middleware('auth');
 
+Route::get('/users','App\Http\Controllers\UsersController@index')->name('users');
+
+Route::delete('/users/delete/{id}', 'App\Http\Controllers\UsersController@destroy');
+
 Route::get('/logout', function () {
 
     Auth::logout();
