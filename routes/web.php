@@ -31,6 +31,11 @@ Route::get('/users','App\Http\Controllers\UsersController@index')->name('users')
 
 Route::delete('/users/delete/{id}', 'App\Http\Controllers\UsersController@destroy');
 
+Route::delete('/posts/delete/{id}', 'App\Http\Controllers\PostsController@destroy');
+
+Route::get('/posts/edit/{id}','App\Http\Controllers\PostsController@change');
+
+
 Route::get('/logout', function () {
 
     Auth::logout();

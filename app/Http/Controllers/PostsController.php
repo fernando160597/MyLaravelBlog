@@ -47,16 +47,30 @@ class PostsController extends Controller
     return redirect('/home');
   }
 
-  // $users = DB::table('posts')
-  //    ->leftJoin('users', 'users.id', '=', 'posts.creator_id')
-  //    ->get();
-  //
-  //    foreach ($users as $key) {
-  //
-  //      echo $key->name;
-  //      // code...
-  //    }
-  //
+  public function destroy (Request $request){
+        
+       
+    Post::destroy($request->id);
+    return redirect('/home');
+}
 
+//Procura o post pelo id no banco e redireciona para a tela de edição
+public function change (Request $request){
+
+  $post =  Post::orderBy('id')
+  ->where('id','=',$request->id)
+  ->get();
+
+  return view('posts.edit', ['post' => $post]);
+}
+
+// //Faz um update usando as informações colocadas na tela de editar
+// public function update (Request $request){
+
+// Postagem::where('id',$request->id)
+// ->update(['titulo'=>$request->titulo,'conteudo'=>$request->conteudo]);
+
+// return redirect('/postagens');
+// }
 
 }
