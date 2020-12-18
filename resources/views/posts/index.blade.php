@@ -8,7 +8,9 @@
       <div class="card text-white bg-dark">
         <div class="card-body">
           <h5 class="card-title text-center">{{$post->title}}</h5>
-          <p id = "content" class="card-text">{{$post->content}}</p>
+          <br>
+          <p id = "content" class="card-text ">{{$post->content}}</p>
+          <br>
           {{$posts->links('vendor.pagination.simple-bootstrap-4')}}
         </div>
     @endforeach
