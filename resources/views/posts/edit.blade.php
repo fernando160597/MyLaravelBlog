@@ -1,13 +1,15 @@
 @extends('layouts.posts')
 @section('body')
 <br>
+<?php
+?>
 <div class="jumbotron">
   <div class="container">
     <div class="form-floating">
-      <form action="/create" method="post">
+      <form action="/posts/edited/{{$post[0]->id}}" method="post">
         @csrf
       <input type="text" class="form-control animate_animated animate__hinge"
-       id="floatingPassword" placeholder="Title" name="title" required>
+        placeholder="Title" name="title" value="<?=$post[0]->title?>"required>
        
       <br>
     </div>

@@ -57,11 +57,24 @@ class PostsController extends Controller
 //Procura o post pelo id no banco e redireciona para a tela de edição
 public function change (Request $request){
 
+  
+
   $post =  Post::orderBy('id')
   ->where('id','=',$request->id)
   ->get();
 
+
   return view('posts.edit', ['post' => $post]);
+}
+
+public function update (Request $request){
+
+
+    
+  Post::where('id',$request->id)
+  ->update(['title'=>$request->title,'content'=>$request->content]);
+
+  return redirect('/home');
 }
 
 // //Faz um update usando as informações colocadas na tela de editar

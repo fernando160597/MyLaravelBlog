@@ -19,7 +19,9 @@ class UsersController extends Controller
 
         //Página postagens, com paginação 1 e a busca não sensitiva, maisuculo ou minusculo
     
-        $users = DB::table('users')->get();
+        $users = DB::table('users')
+        ->orderBy('id')
+        ->get();
         
 
         return view('users.index', ['users' => $users]);

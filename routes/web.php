@@ -33,7 +33,13 @@ Route::delete('/users/delete/{id}', 'App\Http\Controllers\UsersController@destro
 
 Route::delete('/posts/delete/{id}', 'App\Http\Controllers\PostsController@destroy');
 
-Route::get('/posts/edit/{id}','App\Http\Controllers\PostsController@change');
+Route::post('posts/edit/{id}','App\Http\Controllers\PostsController@change');
+
+Route::get('posts/edit/{id}','App\Http\Controllers\PostsController@change');
+
+Route::post('posts/edited/{id}','App\Http\Controllers\PostsController@update');
+
+Route::get('posts/edited/{id}','App\Http\Controllers\PostsController@update');
 
 
 Route::get('/logout', function () {
